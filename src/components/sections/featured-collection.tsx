@@ -31,7 +31,7 @@ export function FeaturedCollection() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-x-8 md:gap-y-20">
           {vehicles.map((vehicle, index) => (
             <article
-              className={index === 1 ? "md:mt-24" : index === 2 ? "md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]" : ""}
+              className={index === 1 ? "md:mt-24" : index === 2 ? "md:col-span-2 md:mx-auto md:w-1/2" : ""}
               key={vehicle.slug}
             >
               <Link

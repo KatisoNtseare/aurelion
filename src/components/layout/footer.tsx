@@ -27,7 +27,7 @@ export function Footer() {
         <div className="flex flex-col items-start justify-between gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center">
           <Link
             href="/"
-            className="font-serif text-[22px] tracking-[0.13em] text-[#eae6df]"
+            className="font-[family-name:var(--font-display)] text-[22px] tracking-[0.13em] text-[#eae6df]"
           >
             AURELION<span className="ml-1 align-top font-sans text-[9px] text-[#a88b62]">®</span>
           </Link>

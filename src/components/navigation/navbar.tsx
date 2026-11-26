@@ -19,7 +19,7 @@ export function Navbar() {
       <div className="mx-auto flex h-[75px] w-full max-w-[1440px] items-center justify-between px-5 sm:h-[88px] sm:px-8">
         <Link
           href="/"
-          className="font-serif text-[25px] tracking-[0.13em] text-[#eae6df]"
+          className="font-[family-name:var(--font-display)] text-[25px] tracking-[0.13em] text-[#eae6df]"
         >
           AURELION<span className="ml-1 align-top font-sans text-[9px] text-[#a88b62]">®</span>
         </Link>
