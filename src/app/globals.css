@@ -1297,3 +1297,88 @@ a {
     flex-direction: column;
   }
 }
+
+
+/* =========================================================
+   ENGINEERING EXPERIENCE
+   Editorial storytelling for the AURELION concept marque.
+   ========================================================= */
+.engineering-page { background: var(--color-obsidian); }
+.engineering-hero { min-height: 100svh; position: relative; display: flex; align-items: end; overflow: hidden; background: #090909; }
+.engineering-hero-image { position: absolute; inset: 0; background: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90") center 58% / cover; transform: scale(1.035); animation: engineering-image-enter 1.8s ease forwards; }
+@keyframes engineering-image-enter { to { transform: scale(1); } }
+.engineering-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.12) 85%), linear-gradient(0deg, rgba(0,0,0,.72), transparent 72%); }
+.engineering-hero-content { position: relative; z-index: 2; padding-top: 190px; padding-bottom: 110px; }
+.engineering-hero h1 { font-size: clamp(64px, 10vw, 142px); letter-spacing: -.065em; line-height: .94; margin-top: 38px; }
+.engineering-hero h1 em, .engineering-intro-statement em, .engineering-collection-heading h2 em, .engineering-cta h2 em { color: var(--color-gold); font-weight: 400; }
+.engineering-hero-bottom { display: flex; justify-content: space-between; align-items: end; gap: 40px; max-width: 900px; margin-top: 65px; }
+.engineering-hero-bottom p { max-width: 420px; color: rgba(255,255,255,.72); font-size: 14px; }
+.engineering-scroll { display: flex; align-items: center; gap: 14px; font: 10px var(--font-mono), monospace; letter-spacing: .12em; color: var(--color-champagne); }
+.engineering-hero-index { position: absolute; right: 32px; bottom: 38px; z-index: 2; font: 9px var(--font-mono), monospace; letter-spacing: .13em; color: rgba(255,255,255,.55); }
+.engineering-intro { background: var(--color-champagne); color: var(--color-obsidian); }
+.engineering-intro .eyebrow { color: #94734e; }
+.engineering-intro-top { display: grid; grid-template-columns: .6fr 1.4fr; gap: 60px; align-items: start; }
+.engineering-intro-statement { max-width: 850px; color: #25231f; font: 400 clamp(36px, 5.5vw, 76px)/1.12 var(--font-display), serif; letter-spacing: -.045em; }
+.engineering-principles { margin-top: 110px; border-top: 1px solid rgba(0,0,0,.18); }
+.engineering-principle { display: grid; grid-template-columns: 80px 1fr 30px; gap: 30px; align-items: start; padding: 30px 0; border-bottom: 1px solid rgba(0,0,0,.18); }
+.engineering-principle > span { font: 11px var(--font-mono), monospace; color: #94734e; padding-top: 8px; }
+.engineering-principle h3 { font: 400 28px var(--font-display), serif; }
+.engineering-principle p { max-width: 500px; margin-top: 8px; color: #66615a; font-size: 13px; }
+.engineering-principle > svg { margin-top: 7px; color: #94734e; }
+.engineering-discipline { min-height: 680px; display: grid; grid-template-columns: 1fr 1fr; }
+.engineering-discipline.is-reversed .engineering-discipline-image { order: 2; }
+.engineering-discipline-image { min-height: 580px; position: relative; overflow: hidden; background: #171717; }
+.engineering-discipline-image img { object-fit: cover; transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.engineering-discipline:hover .engineering-discipline-image img { transform: scale(1.045); }
+.engineering-image-index { position: absolute; bottom: 25px; left: 28px; z-index: 1; font: 9px var(--font-mono), monospace; letter-spacing: .14em; color: rgba(255,255,255,.75); }
+.engineering-discipline-copy { align-self: center; max-width: 620px; padding: 90px clamp(35px, 8vw, 125px); }
+.engineering-discipline-copy h2 { font-size: clamp(48px, 5.5vw, 76px); letter-spacing: -.055em; margin-top: 32px; }
+.engineering-discipline-copy h3 { color: var(--color-gold); font: italic 400 22px var(--font-display), serif; margin-top: 14px; }
+.engineering-discipline-copy > p { font-size: 14px; margin-top: 25px; }
+.engineering-metric { display: flex; flex-direction: column; gap: 7px; margin-top: 55px; padding-top: 22px; border-top: 1px solid var(--color-border); }
+.engineering-metric strong { font: 400 clamp(42px, 5vw, 65px) var(--font-display), serif; }
+.engineering-metric span { font: 9px var(--font-mono), monospace; letter-spacing: .14em; color: var(--color-gold); }
+.engineering-collection { background: #111; }
+.engineering-collection-heading { display: flex; justify-content: space-between; align-items: end; gap: 70px; margin-bottom: 75px; }
+.engineering-collection-heading h2 { font-size: clamp(55px, 7vw, 92px); letter-spacing: -.06em; margin-top: 28px; }
+.engineering-collection-heading > p { max-width: 350px; font-size: 13px; }
+.engineering-spec-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--color-border); }
+.engineering-spec-card { padding: 35px 30px 30px; min-width: 0; }
+.engineering-spec-card + .engineering-spec-card { border-left: 1px solid var(--color-border); }
+.engineering-spec-card h3 { font-size: 44px; margin-top: 24px; }
+.engineering-spec-card > p { font-size: 12px; margin-top: 5px; }
+.engineering-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 12px; margin-top: 42px; padding: 25px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.engineering-specs div { display: flex; flex-direction: column; gap: 6px; }
+.engineering-specs strong { font: 400 25px var(--font-display), serif; }
+.engineering-specs span { font: 8px var(--font-mono), monospace; color: var(--color-muted); letter-spacing: .1em; }
+.engineering-powertrain { display: block; margin-top: 22px; font: 9px var(--font-mono), monospace; letter-spacing: .12em; color: var(--color-gold); }
+.engineering-card-link { display: flex; align-items: center; justify-content: space-between; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--color-border); font: 9px var(--font-mono), monospace; letter-spacing: .1em; }
+.engineering-disclaimer { margin-top: 25px; color: #777; font: 9px/1.7 var(--font-mono), monospace; letter-spacing: .04em; }
+.engineering-cta { padding: 120px 0; background: var(--color-champagne); color: var(--color-obsidian); }
+.engineering-cta .eyebrow { color: #94734e; }
+.engineering-cta h2 { font-size: clamp(68px, 10vw, 130px); line-height: .92; letter-spacing: -.065em; margin-top: 32px; }
+.engineering-cta-link { display: inline-flex; align-items: center; gap: 22px; margin-top: 55px; padding-bottom: 12px; border-bottom: 1px solid #94734e; font: 10px var(--font-mono), monospace; letter-spacing: .12em; transition: gap .3s ease; }
+.engineering-cta-link:hover { gap: 32px; }
+@media (max-width: 900px) {
+  .engineering-discipline, .engineering-discipline.is-reversed { grid-template-columns: 1fr; }
+  .engineering-discipline.is-reversed .engineering-discipline-image { order: 0; }
+  .engineering-discipline-image { min-height: 480px; }
+  .engineering-discipline-copy { max-width: none; padding: 75px 40px 90px; }
+  .engineering-spec-grid { grid-template-columns: 1fr; }
+  .engineering-spec-card + .engineering-spec-card { border-left: 0; border-top: 1px solid var(--color-border); }
+}
+@media (max-width: 650px) {
+  .engineering-hero-content { padding-top: 160px; padding-bottom: 125px; }
+  .engineering-hero h1 { font-size: clamp(58px, 14vw, 88px); }
+  .engineering-hero-bottom { flex-direction: column; align-items: start; gap: 28px; margin-top: 45px; }
+  .engineering-hero-index { left: 20px; right: auto; font-size: 8px; }
+  .engineering-intro-top { grid-template-columns: 1fr; gap: 28px; }
+  .engineering-principles { margin-top: 65px; }
+  .engineering-principle { grid-template-columns: 34px 1fr 20px; gap: 15px; }
+  .engineering-principle h3 { font-size: 24px; }
+  .engineering-discipline-image { min-height: 330px; }
+  .engineering-discipline-copy { padding: 65px 22px 75px; }
+  .engineering-collection-heading { flex-direction: column; align-items: start; gap: 25px; }
+  .engineering-spec-card { padding: 30px 22px; }
+  .engineering-cta { padding: 90px 0; }
+}
