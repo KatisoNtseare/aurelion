@@ -17,9 +17,7 @@
 
   --color-border: rgba(234, 230, 223, 0.14);
 
-  --font-display: var(--font-display);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  /* Font variables are injected by next/font on the root body element. */
 
   --container-width: 1440px;
 }
@@ -913,6 +911,16 @@ a {
   background-position: center;
   background-size: cover;
   transition: background-image .45s ease, filter .35s ease, transform .8s ease;
+}
+
+.configurator-car-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paint-color, transparent);
+  mix-blend-mode: color;
+  opacity: .32;
+  pointer-events: none;
 }
 
 .configurator-preview:hover .configurator-car-image {
