@@ -105,7 +105,7 @@ export function Configurator() {
               backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.42), transparent 65%), url("${vehicle.image}")`,
               filter: "brightness(.94) contrast(1.04)",
               "--paint-color": paint.value,
-            }}
+            } as React.CSSProperties}
           />
           <div className="preview-topline">
             <span>YOUR SPECIFICATION</span>
