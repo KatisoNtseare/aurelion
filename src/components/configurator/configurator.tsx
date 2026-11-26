@@ -103,7 +103,8 @@ export function Configurator() {
             className="configurator-car-image"
             style={{
               backgroundImage: `linear-gradient(0deg, rgba(0,0,0,.42), transparent 65%), url("${vehicle.image}")`,
-              filter: paint.name === "Obsidian Black" ? "brightness(.82) contrast(1.08)" : "brightness(.94) contrast(1.04)",
+              filter: "brightness(.94) contrast(1.04)",
+              "--paint-color": paint.value,
             }}
           />
           <div className="preview-topline">
