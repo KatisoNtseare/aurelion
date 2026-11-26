@@ -836,3 +836,456 @@ a {
     padding-left: 0;
   }
 }
+
+
+/* =========================================================
+   AURELION ATELIER — VEHICLE CONFIGURATOR
+   An editorial, studio-inspired configuration workspace.
+   ========================================================= */
+
+.configurator-page {
+  padding-top: 145px;
+  background: #0b0b0b;
+}
+
+.configurator-heading {
+  padding-bottom: 55px;
+}
+
+.configurator-heading .back-link {
+  margin-bottom: 55px;
+  color: var(--color-muted);
+}
+
+.configurator-title-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.configurator-title-row h1 {
+  margin-top: 20px;
+  font-size: clamp(58px, 8vw, 105px);
+  letter-spacing: -.065em;
+}
+
+.configurator-title-row h1 em {
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+.configurator-title-row p {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.configurator-edition {
+  padding-bottom: 8px;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  line-height: 1.9;
+  letter-spacing: .1em;
+  text-align: right;
+}
+
+.configurator-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, .65fr);
+  gap: 55px;
+  align-items: start;
+}
+
+.configurator-preview {
+  position: sticky;
+  top: 30px;
+  min-height: 680px;
+  height: min(76vw, 760px);
+  max-height: 780px;
+  overflow: hidden;
+  background: #181818;
+}
+
+.configurator-car-image {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  transition: background-image .45s ease, filter .35s ease, transform .8s ease;
+}
+
+.configurator-preview:hover .configurator-car-image {
+  transform: scale(1.025);
+}
+
+.preview-topline,
+.preview-bottom {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-topline {
+  top: 28px;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.preview-bottom {
+  bottom: 35px;
+  align-items: end;
+}
+
+.preview-bottom h2 {
+  margin-top: 12px;
+  font-size: clamp(54px, 7vw, 92px);
+  letter-spacing: -.07em;
+}
+
+.preview-bottom p {
+  color: rgba(255,255,255,.75);
+  font-family: var(--font-display), serif;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.preview-horsepower {
+  font-family: var(--font-display), serif;
+  font-size: 30px;
+}
+
+.preview-horsepower small {
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+}
+
+.preview-paint-chip {
+  position: absolute;
+  right: 30px;
+  top: 72px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,.75);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(0,0,0,.2);
+}
+
+.configurator-controls {
+  border-top: 1px solid var(--color-border);
+}
+
+.configurator-controls-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0 28px;
+}
+
+.configurator-controls-heading h2 {
+  margin-top: 9px;
+  font-size: 32px;
+}
+
+.reset-config {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.config-group {
+  padding: 24px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.config-label-row,
+.selected-option {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.config-label-row {
+  margin-bottom: 18px;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+.model-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.model-option {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+
+.model-option.is-selected {
+  border-color: var(--color-gold);
+  background: rgba(168,139,98,.1);
+  color: var(--color-champagne);
+}
+
+.swatch-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.paint-swatch {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid #0b0b0b;
+  outline: 1px solid transparent;
+  background: var(--swatch);
+  transition: outline-color .2s, transform .2s;
+}
+
+.paint-swatch:hover {
+  transform: scale(1.08);
+}
+
+.paint-swatch.is-selected {
+  outline-color: var(--color-gold);
+}
+
+.selected-option {
+  margin-top: 15px;
+  color: var(--color-champagne);
+  font-size: 11px;
+}
+
+.selected-option span:last-child {
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+}
+
+.choice-list,
+.interior-options {
+  display: grid;
+  gap: 7px;
+}
+
+.choice-option,
+.interior-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-muted);
+  text-align: left;
+  font-size: 11px;
+}
+
+.choice-option.is-selected,
+.interior-option.is-selected {
+  border-color: var(--color-gold);
+  color: var(--color-champagne);
+}
+
+.choice-option small {
+  margin-left: auto;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+}
+
+.choice-option > svg,
+.interior-option > svg {
+  color: var(--color-gold);
+}
+
+.wheel-symbol {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #999;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#999 0deg 12deg, #303030 12deg 24deg);
+}
+
+.wheel-symbol i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #171717;
+  border: 1px solid #bbb;
+}
+
+.wheel-turbine {
+  background: repeating-conic-gradient(#b6b6b6 0deg 5deg, #303030 5deg 45deg);
+}
+
+.wheel-mono {
+  background: repeating-conic-gradient(#b6b6b6 0deg 22deg, #303030 22deg 45deg);
+}
+
+.interior-option > span:first-child {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.3);
+}
+
+.interior-option > span:nth-child(2) {
+  flex: 1;
+}
+
+.config-total {
+  padding: 25px 0 35px;
+  border-top: 1px solid var(--color-border);
+}
+
+.config-total > span,
+.config-total > small {
+  display: block;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.config-total > strong {
+  display: block;
+  margin: 12px 0 7px;
+  font-family: var(--font-display), serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 400;
+}
+
+.config-total > small {
+  font-family: var(--font-sans), sans-serif;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+.copy-config {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 22px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--color-gold);
+  background: var(--color-gold);
+  color: #090909;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: .08em;
+  transition: background .25s, color .25s;
+}
+
+.copy-config:hover {
+  background: transparent;
+  color: var(--color-champagne);
+}
+
+.configurator-footnote {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 35px;
+  padding-bottom: 65px;
+  color: var(--color-muted);
+  font-family: var(--font-mono), monospace;
+  font-size: 8px;
+  letter-spacing: .1em;
+}
+
+.configurator-footnote span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+@media (max-width: 1000px) {
+  .configurator-workspace {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .configurator-preview {
+    position: relative;
+    top: auto;
+    min-height: 520px;
+    height: 65vw;
+  }
+
+  .configurator-controls {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 600px) {
+  .configurator-page {
+    padding-top: 115px;
+  }
+
+  .configurator-heading .back-link {
+    margin-bottom: 40px;
+  }
+
+  .configurator-title-row {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .configurator-edition {
+    text-align: left;
+  }
+
+  .configurator-preview {
+    min-height: 430px;
+    height: 110vw;
+  }
+
+  .preview-topline,
+  .preview-bottom {
+    left: 20px;
+    right: 20px;
+  }
+
+  .preview-bottom h2 {
+    font-size: 58px;
+  }
+
+  .preview-horsepower {
+    font-size: 22px;
+  }
+
+  .configurator-footnote {
+    flex-direction: column;
+  }
+}
