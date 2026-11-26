@@ -1,78 +1,53 @@
-
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowDown,
   ArrowUpRight,
+  Compass,
+  Gauge,
+  Gem,
   MoveUpRight,
 } from "lucide-react";
 
-import {Navbar} from "@/components/navigation/navbar";
-import {Footer} from "@/components/layout/footer";
+import { Navbar } from "@/components/navigation/navbar";
+import { Footer } from "@/components/layout/footer";
 
-export const metadata = {
-  title: "The Experience | AURELION",
+export const metadata: Metadata = {
+  title: "The AURELION Experience",
   description:
-    "Discover the world of AURELION. Private unveilings, extraordinary driving experiences and a new standard of automotive ownership.",
+    "Discover the world of AURELION, where extraordinary performance meets considered craftsmanship and personal expression.",
 };
 
 const experiences = [
   {
     number: "01",
-    eyebrow: "THE FIRST ENCOUNTER",
-    title: "An introduction unlike any other.",
+    icon: Compass,
+    title: "The first encounter",
+    subtitle: "A moment before everything changes.",
     description:
-      "Your journey begins with a private introduction to the AURELION collection. Explore the craftsmanship, engineering and character behind every machine.",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
-    imageAlt: "Luxury sports car in a dramatic setting",
-    link: "/collection",
-    linkLabel: "Discover the collection",
+      "An introduction to the AURELION philosophy. Explore the design language, discover the thinking behind each machine and find the expression that speaks to you.",
+    detail: "DISCOVER THE COLLECTION",
+    href: "/collection",
   },
   {
     number: "02",
-    eyebrow: "BEHIND THE WHEEL",
-    title: "Feel everything. Forget everything else.",
+    icon: Gem,
+    title: "Made personal",
+    subtitle: "Every detail tells a story.",
     description:
-      "Experience the connection between driver and machine. Discover the precision, power and emotion that define every AURELION vehicle.",
-    image:
-      "https://images.unsplash.com/photo-1504215680853-026ed2a45def",
-    imageAlt: "Performance sports car on the road",
-    link: "/engineering",
-    linkLabel: "Explore our engineering",
+      "From exterior finishes to carefully considered interiors, explore the possibilities of personal expression through the AURELION Atelier.",
+    detail: "CREATE YOUR SPECIFICATION",
+    href: "/configurator",
   },
   {
     number: "03",
-    eyebrow: "MADE PERSONAL",
-    title: "An expression of you.",
+    icon: Gauge,
+    title: "The art of motion",
+    subtitle: "Beyond the destination.",
     description:
-      "From exterior finishes to interior materials, every detail is an opportunity to create something unmistakably yours.",
-    image:
-      "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
-    imageAlt: "Detailed luxury automotive interior",
-    link: "/configurator",
-    linkLabel: "Configure your vehicle",
-  },
-];
-
-const ownershipFeatures = [
-  {
-    number: "01",
-    title: "Personal consultation",
-    description:
-      "A considered conversation to understand your preferences, ambitions and vision.",
-  },
-  {
-    number: "02",
-    title: "Bespoke specification",
-    description:
-      "Explore carefully selected finishes, materials and details to define your vehicle.",
-  },
-  {
-    number: "03",
-    title: "The unveiling",
-    description:
-      "A dedicated presentation of your chosen AURELION, marking the beginning of something extraordinary.",
+      "AURELION is imagined around the connection between driver, machine and road. Performance is not simply measured. It is experienced.",
+    detail: "EXPLORE OUR ENGINEERING",
+    href: "/engineering",
   },
 ];
 
@@ -82,214 +57,169 @@ export default function ExperiencePage() {
       <Navbar />
 
       <main className="experience-page">
-        {/* HERO */}
+        {/* Full-screen introduction */}
         <section className="experience-hero">
-          <Image
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
-            alt="AURELION automotive experience"
-            fill
-            priority
-            sizes="100vw"
-            className="experience-hero-image"
-          />
-
+          <div className="experience-hero-image" />
           <div className="experience-hero-overlay" />
 
-          <div className="experience-hero-content">
-            <span className="experience-eyebrow">
-              THE AURELION EXPERIENCE
+          <div className="container experience-hero-content">
+            <span className="eyebrow">
+              BEYOND THE MACHINE / THE AURELION EXPERIENCE
             </span>
 
             <h1>
-              Beyond the
+              It is not
               <br />
-              <span>ordinary.</span>
+              simply about
+              <br />
+              <em>the drive.</em>
             </h1>
 
+            <div className="experience-hero-bottom">
+              <p>
+                It is the anticipation. The precision. The feeling of being
+                completely connected to something extraordinary.
+              </p>
+
+              <a href="#experience-journey" className="experience-scroll-link">
+                <span>DISCOVER THE EXPERIENCE</span>
+                <ArrowDown size={15} />
+              </a>
+            </div>
+          </div>
+
+          <span className="experience-hero-index">
+            AURELION / A DIFFERENT PERSPECTIVE
+          </span>
+        </section>
+
+        {/* Brand philosophy */}
+        <section className="experience-manifesto section-padding">
+          <div className="container experience-manifesto-grid">
+            <div>
+              <span className="eyebrow">01 / THE PHILOSOPHY</span>
+            </div>
+
+            <div>
+              <h2>
+                An automobile can take you somewhere.
+                <br />
+                <em>An experience can move you.</em>
+              </h2>
+
+              <p>
+                We imagine a world where every interaction has intention.
+                Where design creates anticipation, engineering inspires
+                confidence and every detail contributes to something
+                unforgettable.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Three-stage experience */}
+        <section
+          className="experience-journey section-padding"
+          id="experience-journey"
+        >
+          <div className="container">
+            <div className="experience-section-heading">
+              <div>
+                <span className="eyebrow">02 / THE JOURNEY</span>
+                <h2>
+                  More than
+                  <br />
+                  <em>the destination.</em>
+                </h2>
+              </div>
+
+              <p>
+                Every AURELION interaction is imagined as part of a larger
+                experience. From the first impression to the smallest detail.
+              </p>
+            </div>
+
+            <div className="experience-stage-list">
+              {experiences.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <article className="experience-stage" key={item.number}>
+                    <span className="experience-stage-number">
+                      {item.number}
+                    </span>
+
+                    <div className="experience-stage-icon">
+                      <Icon size={25} strokeWidth={1.2} />
+                    </div>
+
+                    <div className="experience-stage-content">
+                      <span className="eyebrow">{item.subtitle}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+
+                      <Link
+                        href={item.href}
+                        className="experience-stage-link"
+                      >
+                        {item.detail}
+                        <ArrowUpRight size={15} />
+                      </Link>
+                    </div>
+
+                    <MoveUpRight
+                      className="experience-stage-arrow"
+                      size={20}
+                      strokeWidth={1.2}
+                    />
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Visual statement */}
+        <section className="experience-image-statement">
+          <div className="experience-image-statement-overlay" />
+
+          <div className="container experience-image-statement-content">
+            <span className="eyebrow">THE AURELION STATE OF MIND</span>
+
+            <h2>
+              Feel every
+              <br />
+              <em>possibility.</em>
+            </h2>
+
             <p>
-              A different perspective on performance.
-              A more personal relationship with the extraordinary.
+              Created around a simple belief: the journey should be as
+              extraordinary as the machine itself.
+            </p>
+          </div>
+        </section>
+
+        {/* Personalisation CTA */}
+        <section className="experience-cta section-padding">
+          <div className="container">
+            <span className="eyebrow">03 / YOUR EXPRESSION</span>
+
+            <h2>
+              There is only
+              <br />
+              one <em>you.</em>
+            </h2>
+
+            <p>
+              Explore the AURELION collection and create a specification
+              that reflects your own perspective.
             </p>
 
-            <Link href="#discover" className="experience-hero-link">
-              DISCOVER THE EXPERIENCE
-              <ArrowDown size={15} />
+            <Link href="/configurator" className="experience-cta-link">
+              ENTER THE AURELION ATELIER
+              <ArrowUpRight size={16} />
             </Link>
           </div>
-
-          <div className="experience-hero-bottom">
-            <span>01 / 03</span>
-            <span>ENGINEERED TO MOVE YOU</span>
-            <span>SOUTH AFRICA</span>
-          </div>
-        </section>
-
-        {/* INTRODUCTION */}
-        <section
-          className="experience-intro"
-          id="discover"
-        >
-          <div className="experience-intro-label">
-            <span>01</span>
-            <span>MORE THAN A MACHINE</span>
-          </div>
-
-          <div className="experience-intro-content">
-            <h2>
-              The vehicle is only
-              <br />
-              <span>the beginning.</span>
-            </h2>
-
-            <p>
-              We believe extraordinary engineering deserves an
-              equally extraordinary experience. Every interaction
-              with AURELION is an opportunity to discover something
-              exceptional.
-            </p>
-          </div>
-        </section>
-
-        {/* EXPERIENCE CARDS */}
-        <section className="experience-stages">
-          <div className="experience-section-heading">
-            <div>
-              <span className="experience-eyebrow">
-                THE JOURNEY
-              </span>
-
-              <h2>
-                Experience
-                <br />
-                <span>every detail.</span>
-              </h2>
-            </div>
-
-            <p>
-              From the first introduction to the moment
-              you take the wheel, discover a world designed
-              around the extraordinary.
-            </p>
-          </div>
-
-          <div className="experience-stage-list">
-            {experiences.map((item) => (
-              <article
-                className="experience-stage"
-                key={item.number}
-              >
-                <div className="experience-stage-image">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 55vw"
-                  />
-
-                  <span className="experience-stage-number">
-                    {item.number}
-                  </span>
-                </div>
-
-                <div className="experience-stage-content">
-                  <span className="experience-eyebrow">
-                    {item.eyebrow}
-                  </span>
-
-                  <h3>{item.title}</h3>
-
-                  <p>{item.description}</p>
-
-                  <Link
-                    href={item.link}
-                    className="experience-text-link"
-                  >
-                    {item.linkLabel}
-                    <ArrowUpRight size={16} />
-                  </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* OWNERSHIP */}
-        <section className="experience-ownership">
-          <div className="experience-ownership-image">
-            <Image
-              src="https://images.unsplash.com/photo-1506610654-064fbba4780c"
-              alt="Luxury vehicle detail"
-              fill
-              sizes="100vw"
-            />
-
-            <div className="experience-ownership-overlay" />
-          </div>
-
-          <div className="experience-ownership-content">
-            <span className="experience-eyebrow">
-              THE ART OF OWNERSHIP
-            </span>
-
-            <h2>
-              Personal.
-              <br />
-              <span>By design.</span>
-            </h2>
-
-            <p>
-              AURELION ownership is imagined as a relationship
-              built around individuality. Every detail, from
-              your first consultation to the final specification,
-              should feel considered.
-            </p>
-
-            <div className="experience-ownership-features">
-              {ownershipFeatures.map((feature) => (
-                <div
-                  className="experience-ownership-feature"
-                  key={feature.number}
-                >
-                  <span>{feature.number}</span>
-
-                  <div>
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FINAL CTA */}
-        <section className="experience-cta">
-          <span className="experience-eyebrow">
-            YOUR JOURNEY STARTS HERE
-          </span>
-
-          <h2>
-            Make it
-            <br />
-            <span>extraordinary.</span>
-          </h2>
-
-          <p>
-            Discover the collection. Find the machine
-            that speaks to you.
-          </p>
-
-          <Link
-            href="/collection"
-            className="experience-cta-link"
-          >
-            EXPLORE THE COLLECTION
-            <MoveUpRight size={17} />
-          </Link>
-
-          <span className="experience-cta-watermark">
-            AURELION
-          </span>
         </section>
       </main>
 

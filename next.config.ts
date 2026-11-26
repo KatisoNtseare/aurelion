@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    agentFeedback: true,
+  },
+
+  cacheComponents: true,
+  partialPrefetching: true,
+
   images: {
     remotePatterns: [
       {
@@ -10,11 +16,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    agentFeedback: true,
-  },
-  cacheComponents: true,
-  partialPrefetching: true,
+
   turbopack: {
     rules: {
       "*.css": {

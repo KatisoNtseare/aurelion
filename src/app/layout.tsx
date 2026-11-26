@@ -1,7 +1,8 @@
-
 import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans, DM_Mono } from "next/font/google";
+
 import "./globals.css";
+import "./editorial-pages.css";
 
 // Display typography gives AURELION its editorial luxury identity.
 const playfair = Playfair_Display({
@@ -20,10 +21,8 @@ const dmSans = DM_Sans({
 const dmMono = DM_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
-// Central metadata for the AURELION experience.
 export const metadata: Metadata = {
   title: {
     default: "AURELION | The Art of Motion",
@@ -33,7 +32,6 @@ export const metadata: Metadata = {
     "Discover AURELION. A fictional automotive marque exploring the intersection of performance, precision and design.",
 };
 
-// The root layout wraps every page in our global typography system.
 export default function RootLayout({
   children,
 }: Readonly<{
