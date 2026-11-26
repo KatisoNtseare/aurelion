@@ -1,249 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  MoveUpRight,
-} from "lucide-react";
-
+import { ArrowDown, ArrowUpRight, MoveUpRight } from "lucide-react";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/layout/footer";
-
-export const metadata: Metadata = {
-  title: "Our Story",
-  description:
-    "Discover the vision, philosophy and creative principles behind AURELION, a fictional luxury automotive marque.",
-};
-
-const principles = [
-  {
-    number: "01",
-    title: "Imagination without limits",
-    description:
-      "We believe the most meaningful innovations begin with the courage to question what already exists.",
-  },
-  {
-    number: "02",
-    title: "Precision in every detail",
-    description:
-      "From the first line of a design to the final imagined driving experience, intention defines the outcome.",
-  },
-  {
-    number: "03",
-    title: "Performance with purpose",
-    description:
-      "Power is only part of the story. The relationship between control, response and emotion matters just as much.",
-  },
+import { Eyebrow } from "@/components/ui/eyebrow";
+export const metadata:Metadata={title:"Our Story",description:"Discover the vision, philosophy and creative principles behind AURELION, a fictional luxury automotive marque."};
+const principles=[
+ {number:"01",title:"Imagination without limits",description:"We believe the most meaningful innovations begin with the courage to question what already exists."},
+ {number:"02",title:"Precision in every detail",description:"From the first line of a design to the final imagined driving experience, intention defines the outcome."},
+ {number:"03",title:"Performance with purpose",description:"Power is only part of the story. The relationship between control, response and emotion matters just as much."}
 ];
-
-const milestones = [
-  {
-    year: "2026",
-    title: "The beginning of an idea",
-    description:
-      "AURELION is conceived as an exploration of modern automotive identity, bringing together performance, design and digital storytelling.",
-  },
-  {
-    year: "01",
-    title: "A design language emerges",
-    description:
-      "The visual identity takes shape around restraint, proportion, purposeful surfaces and a distinctive sense of presence.",
-  },
-  {
-    year: "02",
-    title: "Three expressions of motion",
-    description:
-      "APEX, VEYRA and SOLIS represent three different interpretations of the AURELION philosophy.",
-  },
+const milestones=[
+ {year:"2026",title:"The beginning of an idea",description:"AURELION is conceived as an exploration of modern automotive identity, bringing together performance, design and digital storytelling."},
+ {year:"01",title:"A design language emerges",description:"The visual identity takes shape around restraint, proportion, purposeful surfaces and a distinctive sense of presence."},
+ {year:"02",title:"Three expressions of motion",description:"APEX, VEYRA and SOLIS represent three different interpretations of the AURELION philosophy."}
 ];
-
-export default function OurStoryPage() {
-  return (
-    <>
-      <Navbar />
-
-      <main className="story-page">
-        {/* Hero */}
-        <section className="story-hero">
-          <div className="story-hero-image" />
-          <div className="story-hero-overlay" />
-
-          <div className="container story-hero-content">
-            <span className="eyebrow">
-              THE ORIGIN / THE AURELION STORY
-            </span>
-
-            <h1>
-              Born from
-              <br />
-              <em>possibility.</em>
-            </h1>
-
-            <div className="story-hero-bottom">
-              <p>
-                Every remarkable idea begins with a question. Ours was simple:
-                what if the automobile could become something more?
-              </p>
-
-              <a href="#story-beginning" className="story-scroll-link">
-                <span>DISCOVER OUR STORY</span>
-                <ArrowDown size={15} />
-              </a>
-            </div>
-          </div>
-
-          <span className="story-hero-index">
-            AURELION / EST. 2026
-          </span>
-        </section>
-
-        {/* Origin */}
-        <section
-          className="story-beginning section-padding"
-          id="story-beginning"
-        >
-          <div className="container story-beginning-grid">
-            <div className="story-side-label">
-              <span className="eyebrow">01 / THE BEGINNING</span>
-              <span className="story-side-number">001 — 003</span>
-            </div>
-
-            <div className="story-beginning-copy">
-              <h2>
-                Not another automobile.
-                <br />
-                <em>A different way of thinking.</em>
-              </h2>
-
-              <p className="story-lead">
-                AURELION began as a creative exploration of what a modern
-                luxury automotive marque could represent.
-              </p>
-
-              <p>
-                The idea was never simply to imagine faster machines. It was
-                to create a complete identity around the things that make
-                automotive design compelling: proportion, material, movement,
-                technology and emotion.
-              </p>
-
-              <p>
-                A fictional marque with a real design philosophy. A space to
-                explore ambitious ideas without being limited by convention.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Image feature */}
-        <section className="story-image-feature">
-          <div className="story-image-feature-overlay" />
-
-          <div className="container story-image-feature-content">
-            <span className="eyebrow">A PHILOSOPHY IN MOTION</span>
-
-            <h2>
-              Designed to
-              <br />
-              <em>leave an impression.</em>
-            </h2>
-          </div>
-        </section>
-
-        {/* Principles */}
-        <section className="story-principles section-padding">
-          <div className="container">
-            <div className="story-section-heading">
-              <span className="eyebrow">02 / WHAT DEFINES US</span>
-
-              <h2>
-                Three principles.
-                <br />
-                <em>One vision.</em>
-              </h2>
-            </div>
-
-            <div className="story-principle-list">
-              {principles.map((principle) => (
-                <article
-                  className="story-principle"
-                  key={principle.number}
-                >
-                  <span>{principle.number}</span>
-
-                  <div>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.description}</p>
-                  </div>
-
-                  <MoveUpRight size={19} strokeWidth={1.2} />
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline */}
-        <section className="story-timeline section-padding">
-          <div className="container">
-            <div className="story-section-heading">
-              <span className="eyebrow">03 / THE EVOLUTION</span>
-
-              <h2>
-                An idea in
-                <br />
-                <em>the making.</em>
-              </h2>
-            </div>
-
-            <div className="story-timeline-list">
-              {milestones.map((milestone) => (
-                <article
-                  className="story-timeline-item"
-                  key={milestone.year}
-                >
-                  <span className="story-timeline-year">
-                    {milestone.year}
-                  </span>
-
-                  <div className="story-timeline-marker">
-                    <span />
-                  </div>
-
-                  <div className="story-timeline-copy">
-                    <h3>{milestone.title}</h3>
-                    <p>{milestone.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Closing CTA */}
-        <section className="story-cta section-padding">
-          <div className="container">
-            <span className="eyebrow">THE STORY CONTINUES</span>
-
-            <h2>
-              The future
-              <br />
-              is <em>unwritten.</em>
-            </h2>
-
-            <p>
-              Explore the machines imagined through the AURELION philosophy.
-            </p>
-
-            <Link href="/collection" className="story-cta-link">
-              EXPLORE THE COLLECTION
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </>
-  );
+export default function OurStoryPage(){
+ return <><Navbar/><main className="overflow-hidden bg-[#090909] text-[#eae6df]">
+  <section className="relative isolate flex min-h-[780px] h-[100svh] max-h-[1100px] items-center overflow-hidden bg-[#090909]"><div aria-hidden="true" className="absolute inset-0 -z-20 scale-[1.035] animate-[editorial-image-enter_1.8s_ease_forwards] bg-cover bg-center" style={{backgroundImage:'url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=2400&q=90")'}}/><div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,0,0,0.84),rgba(0,0,0,0.12)_90%),linear-gradient(0deg,rgba(0,0,0,0.78),transparent_75%)]"/>
+   <div className="mx-auto w-full max-w-[1440px] px-5 pb-28 pt-40 sm:px-8 md:pb-32 md:pt-48"><Eyebrow className="text-[#eae6df]">THE ORIGIN / THE AURELION STORY</Eyebrow><h1 className="mt-8 text-[clamp(4rem,10vw,8.8rem)] leading-[0.94] tracking-[-0.065em]">Born from<br/><em className="font-normal text-[#a88b62]">possibility.</em></h1><div className="mt-14 flex max-w-[900px] flex-col items-start justify-between gap-8 sm:flex-row sm:items-end"><p className="max-w-[420px] text-sm leading-7 text-white/70">Every remarkable idea begins with a question. Ours was simple: what if the automobile could become something more?</p><a href="#story-beginning" className="inline-flex items-center gap-3 font-mono text-[9px] tracking-[0.13em] text-white/80 transition-colors hover:text-[#a88b62]">DISCOVER OUR STORY <ArrowDown size={15} className="text-[#a88b62]"/></a></div></div>
+   <span className="absolute bottom-8 right-8 hidden font-mono text-[9px] tracking-[0.13em] text-white/55 sm:block">AURELION / EST. 2026</span>
+  </section>
+  <section id="story-beginning" className="bg-[#eae6df] py-24 text-[#090909] md:py-36"><div className="mx-auto grid max-w-[1440px] gap-9 px-5 sm:px-8 md:grid-cols-[0.65fr_1.35fr] md:gap-16"><div className="flex items-center justify-between gap-4 md:flex-col md:items-start md:justify-between"><Eyebrow className="text-[#94734e]">01 / THE BEGINNING</Eyebrow><span className="font-mono text-[9px] tracking-[0.12em] text-[#94734e]">001 — 003</span></div><div><h2 className="text-[clamp(2.4rem,5.5vw,4.8rem)] leading-[1.12] tracking-[-0.045em]">Not another automobile.<br/><em className="font-normal text-[#94734e]">A different way of thinking.</em></h2><p className="mt-9 max-w-[640px] text-lg leading-[1.7] text-[#25231f]">AURELION began as a creative exploration of what a modern luxury automotive marque could represent.</p><p className="mt-6 max-w-[640px] text-sm leading-7 text-[#66615a]">The idea was never simply to imagine faster machines. It was to create a complete identity around the things that make automotive design compelling: proportion, material, movement, technology and emotion.</p><p className="mt-5 max-w-[640px] text-sm leading-7 text-[#66615a]">A fictional marque with a real design philosophy. A space to explore ambitious ideas without being limited by convention.</p></div></div></section>
+  <section className="relative flex min-h-[560px] items-center overflow-hidden bg-cover bg-center py-24 text-center" style={{backgroundImage:'url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=90")'}}><div className="absolute inset-0 bg-black/60"/><div className="relative z-10 mx-auto w-full max-w-[1100px] px-5 sm:px-8"><Eyebrow className="text-white/80">A PHILOSOPHY IN MOTION</Eyebrow><h2 className="mt-8 text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.96] tracking-[-0.06em]">Designed to<br/><em className="font-normal text-[#a88b62]">leave an impression.</em></h2></div></section>
+  <section className="bg-[#101010] py-24 md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><div className="mb-14 md:mb-20"><Eyebrow>02 / WHAT DEFINES US</Eyebrow><h2 className="mt-7 text-[clamp(3.4rem,7vw,5.8rem)] leading-[0.95] tracking-[-0.06em]">Three principles.<br/><em className="font-normal text-[#a88b62]">One vision.</em></h2></div><div className="border-t border-white/15">{principles.map(p=><article key={p.number} className="group grid grid-cols-[36px_1fr_22px] gap-4 border-b border-white/15 py-8 sm:grid-cols-[80px_1fr_30px] sm:gap-7 sm:py-10"><span className="pt-1 font-mono text-[10px] text-[#a88b62]">{p.number}</span><div><h3 className="text-[clamp(1.5rem,3vw,2.2rem)] tracking-[-0.035em]">{p.title}</h3><p className="mt-3 max-w-[550px] text-[13px] leading-7">{p.description}</p></div><MoveUpRight size={19} strokeWidth={1.2} className="mt-1 text-[#a88b62] transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"/></article>)}</div></div></section>
+  <section className="bg-[#eae6df] py-24 text-[#090909] md:py-36"><div className="mx-auto grid max-w-[1440px] gap-14 px-5 sm:px-8 md:grid-cols-[0.9fr_1.1fr] md:gap-20"><div className="md:sticky md:top-32 md:self-start"><Eyebrow className="text-[#94734e]">03 / THE EVOLUTION</Eyebrow><h2 className="mt-7 text-[clamp(3.5rem,7vw,5.8rem)] leading-[0.95] tracking-[-0.06em]">An idea in<br/><em className="font-normal text-[#94734e]">the making.</em></h2></div><div className="border-l border-black/20 pl-7 sm:pl-10">{milestones.map(m=><article key={m.year} className="relative pb-14 last:pb-0"><span className="absolute -left-[39px] top-0 grid size-6 place-items-center rounded-full border border-[#94734e] bg-[#eae6df] font-mono text-[8px] text-[#94734e] sm:-left-[53px] sm:size-8 sm:text-[9px]">{m.year}</span><h3 className="pt-1 text-[clamp(1.6rem,3vw,2.2rem)] tracking-[-0.035em]">{m.title}</h3><p className="mt-4 max-w-[580px] text-[13px] leading-7 text-[#66615a]">{m.description}</p></article>)}</div></div></section>
+  <section className="bg-[#101010] py-24 md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><Eyebrow>THE STORY CONTINUES</Eyebrow><h2 className="mt-8 text-[clamp(4rem,10vw,8rem)] leading-[0.9] tracking-[-0.065em]">The future<br/>is <em className="font-normal text-[#a88b62]">unwritten.</em></h2><p className="mt-8 max-w-[430px] text-sm leading-7">Explore the machines imagined through the AURELION philosophy.</p><Link href="/collection" className="group mt-10 inline-flex items-center gap-4 border-b border-[#a88b62] pb-3 font-mono text-[9px] tracking-[0.12em] transition-all duration-300 hover:gap-6">EXPLORE THE COLLECTION <ArrowUpRight size={16}/></Link></div></section>
+ </main><Footer/></>;
 }

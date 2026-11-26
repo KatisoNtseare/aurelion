@@ -1,16 +1,4 @@
-
-import { cn } from "@/lib/utils";
-
-interface EyebrowProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-// A consistent uppercase label used to introduce sections.
-export function Eyebrow({ children, className }: EyebrowProps) {
-  return (
-    <span className={cn("eyebrow", className)}>
-      {children}
-    </span>
-  );
+interface EyebrowProps { children: React.ReactNode; className?: string; }
+export function Eyebrow({ children, className = "" }: EyebrowProps) {
+  return <span className={`inline-block font-mono text-[9px] uppercase leading-relaxed tracking-[0.18em] text-[#a88b62] sm:text-[10px] ${className}`}>{children}</span>;
 }

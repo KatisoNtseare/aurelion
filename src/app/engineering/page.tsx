@@ -1,293 +1,44 @@
-
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/layout/footer";
 import { vehicles } from "@/data/vehicles";
-
-export const metadata: Metadata = {
-  title: "Engineering | AURELION",
-  description:
-    "Discover the engineering philosophy behind AURELION's performance concepts.",
-};
-
-const disciplines = [
-  {
-    number: "01",
-    title: "Aerodynamics",
-    subtitle: "Form follows airflow.",
-    description:
-      "Every surface is considered in motion. Sculpted channels, active aerodynamic concepts and a carefully managed underbody balance stability with efficiency.",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=90",
-    metric: "0.24",
-    label: "CONCEPT DRAG COEFFICIENT",
-  },
-  {
-    number: "02",
-    title: "Lightweighting",
-    subtitle: "Strength without excess.",
-    description:
-      "A conceptual carbon-composite monocoque meets precision-engineered aluminium structures. Every gram removed serves a purpose.",
-    image:
-      "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1600&q=90",
-    metric: "−18%",
-    label: "TARGET MASS REDUCTION",
-  },
-  {
-    number: "03",
-    title: "Powertrain",
-    subtitle: "Power, intelligently delivered.",
-    description:
-      "Combustion and electric architectures are developed around distinct driving characters. Intelligent torque management translates output into control.",
-    image:
-      "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=90",
-    metric: "1,001",
-    label: "APEX CONCEPT HORSEPOWER",
-  },
+import { Eyebrow } from "@/components/ui/eyebrow";
+export const metadata:Metadata={title:"Engineering | AURELION",description:"Discover the engineering philosophy behind AURELION's performance concepts."};
+const disciplines=[
+ {number:"01",title:"Aerodynamics",subtitle:"Form follows airflow.",description:"Every surface is considered in motion. Sculpted channels, active aerodynamic concepts and a carefully managed underbody balance stability with efficiency.",image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=90",metric:"0.24",label:"CONCEPT DRAG COEFFICIENT"},
+ {number:"02",title:"Lightweighting",subtitle:"Strength without excess.",description:"A conceptual carbon-composite monocoque meets precision-engineered aluminium structures. Every gram removed serves a purpose.",image:"https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1600&q=90",metric:"−18%",label:"TARGET MASS REDUCTION"},
+ {number:"03",title:"Powertrain",subtitle:"Power, intelligently delivered.",description:"Combustion and electric architectures are developed around distinct driving characters. Intelligent torque management translates output into control.",image:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=90",metric:"1,001",label:"APEX CONCEPT HORSEPOWER"}
 ];
-
-const principles = [
-  {
-    number: "01",
-    title: "Driver first",
-    description:
-      "Technology should amplify the connection between driver, machine and road.",
-  },
-  {
-    number: "02",
-    title: "Purposeful innovation",
-    description:
-      "Every system earns its place through measurable purpose and considered design.",
-  },
-  {
-    number: "03",
-    title: "Timeless by design",
-    description:
-      "Our engineering decisions are guided by longevity, clarity and enduring performance.",
-  },
+const principles=[
+ {number:"01",title:"Driver first",description:"Technology should amplify the connection between driver, machine and road."},
+ {number:"02",title:"Purposeful innovation",description:"Every system earns its place through measurable purpose and considered design."},
+ {number:"03",title:"Timeless by design",description:"Our engineering decisions are guided by longevity, clarity and enduring performance."}
 ];
-
-export default function EngineeringPage() {
-  return (
-    <>
-      <Navbar />
-
-      <main className="engineering-page">
-        {/* Cinematic introduction */}
-        <section className="engineering-hero">
-          <div className="engineering-hero-image" />
-          <div className="engineering-hero-overlay" />
-
-          <div className="container engineering-hero-content">
-            <span className="eyebrow">
-              THE AURELION ENGINEERING PHILOSOPHY / 001
-            </span>
-
-            <h1>
-              Precision is
-              <br />
-              <em>never accidental.</em>
-            </h1>
-
-            <div className="engineering-hero-bottom">
-              <p>
-                Where advanced thinking meets the instinct to move.
-                Discover the principles shaping a new expression of performance.
-              </p>
-
-              <a href="#principles" className="engineering-scroll">
-                EXPLORE OUR THINKING
-                <ArrowDown size={15} />
-              </a>
-            </div>
-          </div>
-
-          <span className="engineering-hero-index">
-            EST. IN IMAGINATION — BUILT FOR POSSIBILITY
-          </span>
-        </section>
-
-        {/* The principles behind the marque */}
-        <section
-          className="engineering-intro section-padding"
-          id="principles"
-        >
-          <div className="container">
-            <div className="engineering-intro-top">
-              <span className="eyebrow">BEYOND THE NUMBERS</span>
-
-              <h2 className="engineering-intro-statement">
-                Performance is not a single figure.
-                It is the sum of <em>every decision.</em>
-              </h2>
-            </div>
-
-            <div className="engineering-principles">
-              {principles.map((principle) => (
-                <article
-                  className="engineering-principle"
-                  key={principle.number}
-                >
-                  <span>{principle.number}</span>
-
-                  <div>
-                    <h3>{principle.title}</h3>
-                    <p>{principle.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Engineering disciplines */}
-        <section className="engineering-disciplines">
-          {disciplines.map((item, index) => (
-            <article
-              className={`engineering-discipline ${
-                index % 2 ? "is-reversed" : ""
-              }`}
-              key={item.number}
-            >
-              <div className="engineering-discipline-image">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 800px) 100vw, 50vw"
-                />
-
-                <span className="engineering-image-index">
-                  AURELION / {item.number}
-                </span>
-              </div>
-
-              <div className="engineering-discipline-copy">
-                <span className="eyebrow">
-                  ENGINEERING DISCIPLINE / {item.number}
-                </span>
-
-                <h2>{item.title}</h2>
-                <h3>{item.subtitle}</h3>
-
-                <p>{item.description}</p>
-
-                <div className="engineering-metric">
-                  <strong>{item.metric}</strong>
-                  <span>{item.label}</span>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
-
-        {/* Concept vehicle specifications */}
-        <section className="engineering-collection section-padding">
-          <div className="container">
-            <div className="engineering-collection-heading">
-              <div>
-                <span className="eyebrow">
-                  THREE EXPRESSIONS. ONE PHILOSOPHY.
-                </span>
-
-                <h2>
-                  Engineered to
-                  <br />
-                  <em>feel different.</em>
-                </h2>
-              </div>
-
-              <p>
-                Three distinct interpretations of performance.
-                Each concept explores a different relationship between
-                power, precision and design.
-              </p>
-            </div>
-
-            <div className="engineering-spec-grid">
-              {vehicles.map((vehicle, index) => (
-                <article
-                  className="engineering-spec-card"
-                  key={vehicle.slug}
-                >
-                  <span className="eyebrow">
-                    0{index + 1} / {vehicle.category}
-                  </span>
-
-                  <h3>{vehicle.name}</h3>
-                  <p>{vehicle.tagline}</p>
-
-                  <div className="engineering-specs">
-                    <div>
-                      <strong>
-                        {vehicle.horsepower.toLocaleString("en-ZA")}
-                      </strong>
-                      <span>HORSEPOWER</span>
-                    </div>
-
-                    <div>
-                      <strong>{vehicle.acceleration}</strong>
-                      <span>0–100 KM/H</span>
-                    </div>
-
-                    <div>
-                      <strong>{vehicle.topSpeed}</strong>
-                      <span>TOP SPEED</span>
-                    </div>
-                  </div>
-
-                  <span className="engineering-powertrain">
-                    {vehicle.powertrain}
-                  </span>
-
-                  <Link
-                    href={`/vehicles/${vehicle.slug}`}
-                    className="engineering-card-link"
-                  >
-                    EXPLORE MODEL
-                    <ArrowUpRight size={15} />
-                  </Link>
-                </article>
-              ))}
-            </div>
-
-            <p className="engineering-disclaimer">
-              All specifications, performance figures and technologies
-              are fictional concept information created for the AURELION
-              design project.
-            </p>
-          </div>
-        </section>
-
-        {/* Configurator call to action */}
-        <section className="engineering-cta">
-          <div className="container">
-            <span className="eyebrow">
-              YOUR VISION. YOUR AURELION.
-            </span>
-
-            <h2>
-              Make it
-              <br />
-              <em>your own.</em>
-            </h2>
-
-            <Link
-              href="/configurator"
-              className="engineering-cta-link"
-            >
-              ENTER THE CONFIGURATOR
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </>
-  );
+export default function EngineeringPage(){
+ return <><Navbar/><main className="bg-[#090909]">
+  <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#090909]">
+   <div aria-hidden="true" className="absolute inset-0 -z-20 scale-[1.04] animate-[engineering-enter_1.8s_ease_forwards] bg-cover bg-[position:center_58%]" style={{backgroundImage:'url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90")'}}/>
+   <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,0,0,0.82),transparent_90%),linear-gradient(0deg,rgba(0,0,0,0.75),transparent_75%)]"/>
+   <div className="mx-auto w-full max-w-[1440px] px-5 pb-28 pt-44 sm:px-8 md:pb-32"><Eyebrow className="text-[#eae6df]">THE AURELION ENGINEERING PHILOSOPHY / 001</Eyebrow><h1 className="mt-8 text-[clamp(3.8rem,10vw,8.9rem)] leading-[0.94] tracking-[-0.065em]">Precision is<br/><em className="font-normal text-[#a88b62]">never accidental.</em></h1>
+    <div className="mt-14 flex max-w-[900px] flex-col items-start justify-between gap-8 sm:flex-row sm:items-end"><p className="max-w-[420px] text-sm leading-7 text-white/70">Where advanced thinking meets the instinct to move. Discover the principles shaping a new expression of performance.</p><a href="#principles" className="inline-flex items-center gap-3 font-mono text-[9px] tracking-[0.13em] text-[#eae6df] transition-colors hover:text-[#a88b62]">EXPLORE OUR THINKING <ArrowDown size={15}/></a></div>
+   </div><span className="absolute bottom-8 right-8 hidden font-mono text-[9px] tracking-[0.13em] text-white/55 sm:block">EST. IN IMAGINATION — BUILT FOR POSSIBILITY</span>
+  </section>
+  <section id="principles" className="bg-[#eae6df] py-24 text-[#090909] md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+   <div className="grid gap-8 md:grid-cols-[0.6fr_1.4fr] md:gap-14"><Eyebrow className="text-[#94734e]">BEYOND THE NUMBERS</Eyebrow><h2 className="max-w-[850px] text-[clamp(2.3rem,5.5vw,4.8rem)] leading-[1.12] tracking-[-0.045em]">Performance is not a single figure. It is the sum of <em className="font-normal text-[#94734e]">every decision.</em></h2></div>
+   <div className="mt-16 border-t border-black/20 md:mt-24">{principles.map(p=><article key={p.number} className="grid grid-cols-[42px_1fr] gap-5 border-b border-black/20 py-7 sm:grid-cols-[80px_1fr] sm:gap-8"><span className="font-mono text-[10px] text-[#94734e]">{p.number}</span><div><h3 className="text-2xl sm:text-[28px]">{p.title}</h3><p className="mt-2 max-w-[500px] text-[13px] text-[#66615a]">{p.description}</p></div></article>)}</div>
+  </div></section>
+  <section>{disciplines.map((item,index)=><article key={item.number} className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2">
+   <div className={`relative min-h-[340px] overflow-hidden bg-[#171717] sm:min-h-[480px] lg:min-h-[600px] ${index%2===1?"lg:order-2":""}`}><Image src={item.image} alt={item.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition-transform duration-1000 hover:scale-[1.045]"/><span className="absolute bottom-6 left-6 font-mono text-[9px] tracking-[0.14em] text-white">AURELION / {item.number}</span></div>
+   <div className="flex flex-col justify-center px-6 py-20 sm:px-10 lg:px-[clamp(2.2rem,8vw,7.8rem)] lg:py-24"><Eyebrow>ENGINEERING DISCIPLINE / {item.number}</Eyebrow><h2 className="mt-8 text-[clamp(3rem,5.5vw,4.8rem)] tracking-[-0.055em]">{item.title}</h2><h3 className="mt-4 font-[family-name:var(--font-display)] text-xl italic text-[#a88b62]">{item.subtitle}</h3><p className="mt-7 max-w-[500px] text-sm leading-7">{item.description}</p><div className="mt-14 border-t border-white/15 pt-6"><strong className="block font-[family-name:var(--font-display)] text-5xl font-normal sm:text-6xl">{item.metric}</strong><span className="mt-2 block font-mono text-[9px] tracking-[0.14em] text-[#a88b62]">{item.label}</span></div></div>
+  </article>)}</section>
+  <section className="bg-[#111] py-24 md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8">
+   <div className="mb-14 flex flex-col justify-between gap-7 md:mb-20 md:flex-row md:items-end"><div><Eyebrow>THREE EXPRESSIONS. ONE PHILOSOPHY.</Eyebrow><h2 className="mt-7 text-[clamp(3.4rem,7vw,5.8rem)] leading-[0.95] tracking-[-0.06em]">Engineered to<br/><em className="font-normal text-[#a88b62]">feel different.</em></h2></div><p className="max-w-[350px] text-[13px] leading-7">Three distinct interpretations of performance. Each concept explores a different relationship between power, precision and design.</p></div>
+   <div className="grid border border-white/15 md:grid-cols-3">{vehicles.map((v,i)=><article key={v.slug} className="min-w-0 p-6 sm:p-8 md:border-r md:border-white/15 md:last:border-r-0 [&+article]:border-t [&+article]:border-white/15 md:[&+article]:border-t-0"><Eyebrow>0{i+1} / {v.category}</Eyebrow><h3 className="mt-6 text-4xl tracking-[-0.05em]">{v.name}</h3><p className="mt-2 text-xs">{v.tagline}</p><div className="mt-9 grid grid-cols-2 gap-6 border-y border-white/15 py-6"><div><strong className="block font-[family-name:var(--font-display)] text-2xl font-normal">{v.horsepower.toLocaleString("en-ZA")}</strong><span className="font-mono text-[8px] tracking-wider text-[#a9a49d]">HORSEPOWER</span></div><div><strong className="block font-[family-name:var(--font-display)] text-2xl font-normal">{v.acceleration}</strong><span className="font-mono text-[8px] tracking-wider text-[#a9a49d]">0–100 KM/H</span></div><div><strong className="block font-[family-name:var(--font-display)] text-2xl font-normal">{v.topSpeed}</strong><span className="font-mono text-[8px] tracking-wider text-[#a9a49d]">TOP SPEED</span></div><div><strong className="block text-sm font-normal">{v.powertrain}</strong><span className="font-mono text-[8px] tracking-wider text-[#a9a49d]">POWERTRAIN</span></div></div><Link href={`/vehicles/${v.slug}`} className="mt-7 flex items-center justify-between border-t border-white/15 pt-5 font-mono text-[9px] tracking-[0.1em] transition-colors hover:text-[#a88b62]">EXPLORE MODEL <ArrowUpRight size={15}/></Link></article>)}</div>
+   <p className="mt-6 font-mono text-[9px] leading-relaxed text-[#777]">All specifications, performance figures and technologies are fictional concept information created for the AURELION design project.</p>
+  </div></section>
+  <section className="bg-[#eae6df] py-24 text-[#090909] md:py-32"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><Eyebrow className="text-[#94734e]">YOUR VISION. YOUR AURELION.</Eyebrow><h2 className="mt-8 text-[clamp(4rem,10vw,8rem)] leading-[0.9] tracking-[-0.065em]">Make it<br/><em className="font-normal text-[#94734e]">your own.</em></h2><Link href="/configurator" className="group mt-12 inline-flex items-center gap-4 border-b border-[#94734e] pb-3 font-mono text-[9px] tracking-[0.12em] transition-all duration-300 hover:gap-6">ENTER THE CONFIGURATOR <ArrowUpRight size={16}/></Link></div></section>
+ </main><Footer/></>;
 }

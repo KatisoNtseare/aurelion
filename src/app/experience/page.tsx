@@ -1,229 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  ArrowDown,
-  ArrowUpRight,
-  Compass,
-  Gauge,
-  Gem,
-  MoveUpRight,
-} from "lucide-react";
-
+import { ArrowDown, ArrowUpRight, Compass, Gauge, Gem, MoveUpRight } from "lucide-react";
 import { Navbar } from "@/components/navigation/navbar";
 import { Footer } from "@/components/layout/footer";
-
-export const metadata: Metadata = {
-  title: "The AURELION Experience",
-  description:
-    "Discover the world of AURELION, where extraordinary performance meets considered craftsmanship and personal expression.",
-};
-
-const experiences = [
-  {
-    number: "01",
-    icon: Compass,
-    title: "The first encounter",
-    subtitle: "A moment before everything changes.",
-    description:
-      "An introduction to the AURELION philosophy. Explore the design language, discover the thinking behind each machine and find the expression that speaks to you.",
-    detail: "DISCOVER THE COLLECTION",
-    href: "/collection",
-  },
-  {
-    number: "02",
-    icon: Gem,
-    title: "Made personal",
-    subtitle: "Every detail tells a story.",
-    description:
-      "From exterior finishes to carefully considered interiors, explore the possibilities of personal expression through the AURELION Atelier.",
-    detail: "CREATE YOUR SPECIFICATION",
-    href: "/configurator",
-  },
-  {
-    number: "03",
-    icon: Gauge,
-    title: "The art of motion",
-    subtitle: "Beyond the destination.",
-    description:
-      "AURELION is imagined around the connection between driver, machine and road. Performance is not simply measured. It is experienced.",
-    detail: "EXPLORE OUR ENGINEERING",
-    href: "/engineering",
-  },
+import { Eyebrow } from "@/components/ui/eyebrow";
+export const metadata:Metadata={title:"The AURELION Experience",description:"Discover the world of AURELION, where extraordinary performance meets considered craftsmanship and personal expression."};
+const experiences=[
+ {number:"01",icon:Compass,title:"The first encounter",subtitle:"A moment before everything changes.",description:"An introduction to the AURELION philosophy. Explore the design language, discover the thinking behind each machine and find the expression that speaks to you.",detail:"DISCOVER THE COLLECTION",href:"/collection"},
+ {number:"02",icon:Gem,title:"Made personal",subtitle:"Every detail tells a story.",description:"From exterior finishes to carefully considered interiors, explore the possibilities of personal expression through the AURELION Atelier.",detail:"CREATE YOUR SPECIFICATION",href:"/configurator"},
+ {number:"03",icon:Gauge,title:"The art of motion",subtitle:"Beyond the destination.",description:"AURELION is imagined around the connection between driver, machine and road. Performance is not simply measured. It is experienced.",detail:"EXPLORE OUR ENGINEERING",href:"/engineering"}
 ];
-
-export default function ExperiencePage() {
-  return (
-    <>
-      <Navbar />
-
-      <main className="experience-page">
-        {/* Full-screen introduction */}
-        <section className="experience-hero">
-          <div className="experience-hero-image" />
-          <div className="experience-hero-overlay" />
-
-          <div className="container experience-hero-content">
-            <span className="eyebrow">
-              BEYOND THE MACHINE / THE AURELION EXPERIENCE
-            </span>
-
-            <h1>
-              It is not
-              <br />
-              simply about
-              <br />
-              <em>the drive.</em>
-            </h1>
-
-            <div className="experience-hero-bottom">
-              <p>
-                It is the anticipation. The precision. The feeling of being
-                completely connected to something extraordinary.
-              </p>
-
-              <a href="#experience-journey" className="experience-scroll-link">
-                <span>DISCOVER THE EXPERIENCE</span>
-                <ArrowDown size={15} />
-              </a>
-            </div>
-          </div>
-
-          <span className="experience-hero-index">
-            AURELION / A DIFFERENT PERSPECTIVE
-          </span>
-        </section>
-
-        {/* Brand philosophy */}
-        <section className="experience-manifesto section-padding">
-          <div className="container experience-manifesto-grid">
-            <div>
-              <span className="eyebrow">01 / THE PHILOSOPHY</span>
-            </div>
-
-            <div>
-              <h2>
-                An automobile can take you somewhere.
-                <br />
-                <em>An experience can move you.</em>
-              </h2>
-
-              <p>
-                We imagine a world where every interaction has intention.
-                Where design creates anticipation, engineering inspires
-                confidence and every detail contributes to something
-                unforgettable.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Three-stage experience */}
-        <section
-          className="experience-journey section-padding"
-          id="experience-journey"
-        >
-          <div className="container">
-            <div className="experience-section-heading">
-              <div>
-                <span className="eyebrow">02 / THE JOURNEY</span>
-                <h2>
-                  More than
-                  <br />
-                  <em>the destination.</em>
-                </h2>
-              </div>
-
-              <p>
-                Every AURELION interaction is imagined as part of a larger
-                experience. From the first impression to the smallest detail.
-              </p>
-            </div>
-
-            <div className="experience-stage-list">
-              {experiences.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <article className="experience-stage" key={item.number}>
-                    <span className="experience-stage-number">
-                      {item.number}
-                    </span>
-
-                    <div className="experience-stage-icon">
-                      <Icon size={25} strokeWidth={1.2} />
-                    </div>
-
-                    <div className="experience-stage-content">
-                      <span className="eyebrow">{item.subtitle}</span>
-                      <h3>{item.title}</h3>
-                      <p>{item.description}</p>
-
-                      <Link
-                        href={item.href}
-                        className="experience-stage-link"
-                      >
-                        {item.detail}
-                        <ArrowUpRight size={15} />
-                      </Link>
-                    </div>
-
-                    <MoveUpRight
-                      className="experience-stage-arrow"
-                      size={20}
-                      strokeWidth={1.2}
-                    />
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Visual statement */}
-        <section className="experience-image-statement">
-          <div className="experience-image-statement-overlay" />
-
-          <div className="container experience-image-statement-content">
-            <span className="eyebrow">THE AURELION STATE OF MIND</span>
-
-            <h2>
-              Feel every
-              <br />
-              <em>possibility.</em>
-            </h2>
-
-            <p>
-              Created around a simple belief: the journey should be as
-              extraordinary as the machine itself.
-            </p>
-          </div>
-        </section>
-
-        {/* Personalisation CTA */}
-        <section className="experience-cta section-padding">
-          <div className="container">
-            <span className="eyebrow">03 / YOUR EXPRESSION</span>
-
-            <h2>
-              There is only
-              <br />
-              one <em>you.</em>
-            </h2>
-
-            <p>
-              Explore the AURELION collection and create a specification
-              that reflects your own perspective.
-            </p>
-
-            <Link href="/configurator" className="experience-cta-link">
-              ENTER THE AURELION ATELIER
-              <ArrowUpRight size={16} />
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </>
-  );
+export default function ExperiencePage(){
+ return <><Navbar/><main className="overflow-hidden bg-[#090909] text-[#eae6df]">
+  <section className="relative isolate flex min-h-[780px] h-[100svh] max-h-[1100px] items-center overflow-hidden bg-[#090909]"><div aria-hidden="true" className="absolute inset-0 -z-20 scale-[1.035] animate-[editorial-image-enter_1.8s_ease_forwards] bg-cover bg-[position:center_55%]" style={{backgroundImage:'url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90")'}}/><div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(8,9,10,0.9),rgba(8,9,10,0.25)_90%),linear-gradient(0deg,rgba(8,9,10,0.78),transparent_75%)]"/>
+   <div className="mx-auto w-full max-w-[1440px] px-5 pb-28 pt-40 sm:px-8 md:pb-32 md:pt-48"><Eyebrow className="text-[#eae6df]">BEYOND THE MACHINE / THE AURELION EXPERIENCE</Eyebrow><h1 className="mt-8 text-[clamp(3.8rem,10vw,8.8rem)] leading-[0.94] tracking-[-0.065em]">It is not<br/>simply about<br/><em className="font-normal text-[#a88b62]">the drive.</em></h1><div className="mt-14 flex max-w-[900px] flex-col items-start justify-between gap-8 sm:flex-row sm:items-end"><p className="max-w-[420px] text-sm leading-7 text-white/70">It is the anticipation. The precision. The feeling of being completely connected to something extraordinary.</p><a href="#experience-journey" className="inline-flex items-center gap-3 font-mono text-[9px] tracking-[0.13em] text-white/80 transition-colors hover:text-[#a88b62]">DISCOVER THE EXPERIENCE <ArrowDown size={15} className="text-[#a88b62]"/></a></div></div>
+   <span className="absolute bottom-8 right-8 hidden font-mono text-[9px] tracking-[0.13em] text-white/55 sm:block">AURELION / A DIFFERENT PERSPECTIVE</span>
+  </section>
+  <section className="bg-[#eae6df] py-24 text-[#090909] md:py-36"><div className="mx-auto grid max-w-[1440px] gap-9 px-5 sm:px-8 md:grid-cols-[0.65fr_1.35fr] md:gap-16"><Eyebrow className="text-[#94734e]">01 / THE PHILOSOPHY</Eyebrow><div><h2 className="text-[clamp(2.4rem,5.5vw,4.8rem)] leading-[1.12] tracking-[-0.045em]">An automobile can take you somewhere.<br/><em className="font-normal text-[#94734e]">An experience can move you.</em></h2><p className="mt-8 max-w-[620px] text-sm leading-7 text-[#66615a]">We imagine a world where every interaction has intention. Where design creates anticipation, engineering inspires confidence and every detail contributes to something unforgettable.</p></div></div></section>
+  <section id="experience-journey" className="bg-[#101010] py-24 md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><div className="mb-14 flex flex-col justify-between gap-7 md:mb-20 md:flex-row md:items-end"><div><Eyebrow>02 / THE JOURNEY</Eyebrow><h2 className="mt-7 text-[clamp(3.4rem,7vw,5.9rem)] leading-[0.95] tracking-[-0.06em]">More than<br/><em className="font-normal text-[#a88b62]">the destination.</em></h2></div><p className="max-w-[350px] text-[13px] leading-7">Every AURELION interaction is imagined as part of a larger experience. From the first impression to the smallest detail.</p></div>
+   <div className="border-t border-white/15">{experiences.map(item=>{const Icon=item.icon;return <article key={item.number} className="group grid grid-cols-[34px_1fr_22px] gap-4 border-b border-white/15 py-9 transition-all duration-300 hover:px-2 sm:grid-cols-[55px_65px_1fr_25px] sm:gap-6 sm:py-12"><span className="pt-1.5 font-mono text-[10px] text-[#a88b62]">{item.number}</span><div className="hidden size-14 place-items-center rounded-full border border-white/15 text-[#a88b62] sm:grid"><Icon size={24} strokeWidth={1.2}/></div><div><Eyebrow className="text-[#a9a49d]">{item.subtitle}</Eyebrow><h3 className="mt-3 text-[clamp(1.8rem,3.5vw,2.8rem)] tracking-[-0.04em]">{item.title}</h3><p className="mt-4 max-w-[590px] text-[13px] leading-7">{item.description}</p><Link href={item.href} className="mt-6 inline-flex items-center gap-3 border-b border-[#a88b62] pb-2 font-mono text-[9px] tracking-[0.1em] transition-all duration-300 hover:gap-5 hover:text-[#a88b62]">{item.detail}<ArrowUpRight size={15}/></Link></div><MoveUpRight className="mt-1.5 text-[#a88b62]" size={20} strokeWidth={1.2}/></article>})}</div>
+  </div></section>
+  <section className="relative flex min-h-[560px] items-center overflow-hidden bg-cover bg-center py-24" style={{backgroundImage:'url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90")'}}><div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.84),rgba(0,0,0,0.16)),linear-gradient(0deg,rgba(0,0,0,0.4),transparent)]"/><div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 sm:px-8"><Eyebrow className="text-white/80">THE AURELION STATE OF MIND</Eyebrow><h2 className="mt-8 text-[clamp(4rem,9vw,7.8rem)] leading-[0.94] tracking-[-0.06em]">Feel every<br/><em className="font-normal text-[#a88b62]">possibility.</em></h2><p className="mt-7 max-w-[390px] text-sm leading-7 text-white/70">Created around a simple belief: the journey should be as extraordinary as the machine itself.</p></div></section>
+  <section className="bg-[#eae6df] py-24 text-[#090909] md:py-36"><div className="mx-auto max-w-[1440px] px-5 sm:px-8"><Eyebrow className="text-[#94734e]">03 / YOUR EXPRESSION</Eyebrow><h2 className="mt-8 text-[clamp(4rem,10vw,8rem)] leading-[0.9] tracking-[-0.065em]">There is only<br/>one <em className="font-normal text-[#94734e]">you.</em></h2><p className="mt-8 max-w-[430px] text-sm leading-7 text-[#66615a]">Explore the AURELION collection and create a specification that reflects your own perspective.</p><Link href="/configurator" className="group mt-10 inline-flex items-center gap-4 border-b border-[#94734e] pb-3 font-mono text-[9px] tracking-[0.12em] transition-all duration-300 hover:gap-6">ENTER THE AURELION ATELIER <ArrowUpRight size={16}/></Link></div></section>
+ </main><Footer/></>;
 }
